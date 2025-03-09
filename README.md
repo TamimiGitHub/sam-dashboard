@@ -27,4 +27,4 @@ To install and run the SAM Dashboard locally, follow these steps:
 Once the server is running, open your browser and navigate to `http://localhost:5173` to access the dashboard
 
 ## Features and Roadmap
-For a detailed list of features and upcoming enhancements, please refer to the [TODO.md](TODO.md) file. This file is regularly updated to reflect the current status and future plans for the SAM Dashboard.
+For a detailed list of features and upcoming enhancements, please refer to the [TODO.md](todo.md) file. This file is regularly updated to reflect the current status and future plans for the SAM Dashboard.
