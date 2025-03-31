@@ -8,7 +8,7 @@ To install and run the SAM Dashboard locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/sam-dashboard.git
+    git clone https://github.com/TamimiGitHub/sam-dashboard.git
     ```
 2. Navigate to the project directory:
     ```bash
