@@ -2,7 +2,7 @@ import { useRef, useEffect, useCallback } from 'react';
 import { Bot, LayoutGrid, BrainCog, DoorOpen } from 'lucide-react';
 import { useSolace } from '../context/SolaceContext';
 import { Box, Typography, useTheme, Button } from '@mui/material';
-import { SamIcon } from './Samicon';
+import { Samicon } from './Samicon';
 import {
   ICON_BOX_SIZE,
   usePositions,
@@ -262,7 +262,7 @@ export default function Visualizer() {
             transition: 'all 0.3s ease',
           }}
         >
-          <SamIcon size={48} />
+          <Samicon size={48} />
         </Box>
         <Typography variant="subtitle2" color="text.secondary">
           Event Mesh

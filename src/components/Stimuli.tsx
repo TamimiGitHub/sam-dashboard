@@ -143,18 +143,18 @@ export default function Stimuli() {
                 label={`Stimuli (${counts.stimuli})`} 
                 value="stimuli"
               />
-              <Tab 
+              {/* <Tab 
                 icon={<Play size={16} />} 
                 iconPosition="start"
                 label={`Streaming (${counts.streaming})`} 
                 value="streaming"
-              />
-              <Tab 
+              /> */}
+              {/* <Tab 
                 icon={<Check size={16} />} 
                 iconPosition="start"
                 label={`Complete (${counts.complete})`} 
                 value="complete"
-              />
+              /> */}
               <Tab 
                 icon={<ArrowRight size={16} />} 
                 iconPosition="start"
@@ -362,7 +362,7 @@ export default function Stimuli() {
               </List>
             )}
 
-            {activeTab === 'streaming' && (
+            {/* {activeTab === 'streaming' && (
               <List>
                 {sortedStreamingResponses.map((response, index) => (
                   <Box key={`${response.uuid}-${index}`}>
@@ -405,9 +405,9 @@ export default function Stimuli() {
                   </Typography>
                 )}
               </List>
-            )}
+            )} */}
 
-            {activeTab === 'complete' && (
+            {/* {activeTab === 'complete' && (
               <List>
                 {responseCompletes.map((response, index) => (
                   <Box key={index}>
@@ -442,7 +442,7 @@ export default function Stimuli() {
                   </Typography>
                 )}
               </List>
-            )}
+            )} */}
 
             {activeTab === 'action-req' && (
               <List>
@@ -496,71 +496,54 @@ export default function Stimuli() {
             )}
 
             {activeTab === 'action-res' && (
-              <List>
+                <List>
                 {sortedActionResponses.map((response, index) => (
                   <Box key={`${response.action_list_id}-${response.action_idx}`}>
-                    {index > 0 && <Divider />}
-                    <ListItem
-                      sx={{
-                        py: 2,
-                        flexDirection: 'column',
-                        alignItems: 'stretch',
-                        '&:hover': { bgcolor: 'rgba(0, 0, 0, 0.02)' },
-                      }}
-                    >
-                      <Stack direction="row" spacing={2} alignItems="center" mb={2}>
-                        <ArrowLeft className="w-5 h-5 text-blue-500" />
-                        <Stack direction="row" spacing={1} alignItems="center">
-                          <Chip
-                            label={`Action: ${response.action_name}`}
-                            size="small"
-                            color="primary"
-                          />
-                          <Typography variant="caption" color="text.secondary">
-                            ID: {response.action_list_id}
-                          </Typography>
-                        </Stack>
-                      </Stack>
-                      <Box sx={{ pl: 4 }}>
-                        <Typography variant="body1" sx={{ whiteSpace: 'pre-wrap', mb: 2 }}>
-                          {response.message}
-                        </Typography>
-                        {response.files.length > 0 && (
-                          <Box>
-                            <Typography variant="subtitle2" gutterBottom>
-                              Files:
-                            </Typography>
-                            <Stack spacing={1}>
-                              {response.files.map((file, i) => (
-                                <Box
-                                  key={i}
-                                  sx={{
-                                    bgcolor: 'grey.50',
-                                    p: 2,
-                                    borderRadius: 1,
-                                  }}
-                                >
-                                  <Typography variant="caption" display="block" gutterBottom>
-                                    {file.name} ({file.mime_type}, {file.file_size} bytes)
-                                  </Typography>
-                                  <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
-                                    {file.data}
-                                  </pre>
-                                </Box>
-                              ))}
-                            </Stack>
-                          </Box>
-                        )}
-                      </Box>
-                    </ListItem>
+                  {index > 0 && <Divider />}
+                  <ListItem
+                    sx={{
+                    py: 2,
+                    flexDirection: 'column',
+                    alignItems: 'stretch',
+                    '&:hover': { bgcolor: 'rgba(0, 0, 0, 0.02)' },
+                    }}
+                  >
+                    <Stack direction="row" spacing={2} alignItems="center" mb={2}>
+                    <ArrowLeft className="w-5 h-5 text-blue-500" />
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <Chip
+                      label={`Agent: ${response.topic?.split('/')[response.topic?.split('/').indexOf('agent') + 1]}`}
+                      size="small"
+                      color="primary"
+                      />
+                      <Chip
+                      label={`Action: ${response.action_name}`}
+                      size="small"
+                      />
+                      <Typography variant="caption" color="text.secondary">
+                      ID: {response.action_list_id}
+                      </Typography>
+                    </Stack>
+                    </Stack>
+                    <Box sx={{ pl: 4 }}>
+                    <Typography variant="subtitle2" gutterBottom>
+                      Parameters:
+                    </Typography>
+                    <Box sx={{ bgcolor: 'grey.50', p: 2, borderRadius: 1 }}>
+                      <pre style={{ margin: 0, whiteSpace: 'pre-wrap' }}>
+                      {JSON.stringify(response.action_params, null, 2)}
+                      </pre>
+                    </Box>
+                    </Box>
+                  </ListItem>
                   </Box>
                 ))}
                 {sortedActionResponses.length === 0 && (
                   <Typography textAlign="center" color="text.secondary" py={4}>
-                    No action responses
+                  No action responses
                   </Typography>
                 )}
-              </List>
+                </List>
             )}
 
             {activeTab === 'llm-req' && (

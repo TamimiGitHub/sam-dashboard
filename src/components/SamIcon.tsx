@@ -1,4 +1,4 @@
-export const SamIcon = ({ size = 32 }: { size?: number }) => (
+export const Samicon = ({ size = 32 }: { size?: number }) => (
   <svg
     width={size}
     height={size}

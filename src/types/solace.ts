@@ -138,7 +138,7 @@ export interface ActionRequest {
 
 export interface ActionResponse {
   message: string;
-  files: Array<{
+  files?: Array<{
     data: string;
     name: string;
     file_size: number;

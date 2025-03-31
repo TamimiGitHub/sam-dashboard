@@ -1,5 +1,5 @@
 # Features
-- Add an LLM icon for 
+-   Filter by stimulus ID. Note, stimId is found in the message prop
 
 # Minor updates
 - Render Registration Messages in useMessageBalls after the position of the agents is set
